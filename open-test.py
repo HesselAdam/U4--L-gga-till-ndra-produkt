@@ -134,12 +134,17 @@ numererad_lista(products, val)
 
 statistics(products, val)
 
-get_product_by_id(products, val, int(input("Ange produktens id: ")))
 
-remove_product_by_id(products, val, int(input("Ange produktens id som ska tas bort: ")))
+if val == "Sök produkt (id)":
+    product_id = int(input("Ange produktens id: "))
+    get_product_by_id(products, val, product_id)
+
+if val == "Radera produkt":
+    product_id = int(input("Ange produktens id som ska tas bort: "))
+    remove_product_by_id(products, val, product_id)
 
 add_product(products, val)
 
 change_product(products, val)
 
-save_data('db_products.csv', products, val)
+save_data('db_products.csv', products)
